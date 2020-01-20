@@ -1,0 +1,22 @@
+This is 8-bit Big BibTeX version 0.99c
+Implementation:  GNU C for Unix
+Release version: 3.71 (18 Aug 1996)
+
+The top-level auxiliary file: scicomp.aux
+The style file: asaetr.bst
+I couldn't open database file asaetr.bib
+---line 4 of file scicomp.aux
+ : \bibdata{asaetr
+ :                }
+I'm skipping whatever remains of this command
+I found no database files---while reading file scicomp.aux
+Warning--I didn't find a database entry for "ll:86"
+
+Here's how much of BibTeX's memory you used:
+ Cites:                 0 out of 7500
+ Fields:                0 out of 125000
+ Hash table:        34844 out of 35000
+ Strings:             511 out of 30000
+ String pool:        4061 out of 750000
+ Wizard functions:   2223 out of 10000
+(There were 2 error messages)

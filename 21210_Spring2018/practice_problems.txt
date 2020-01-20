@@ -1,0 +1,129 @@
+=========================================
+Sample problem that should help with 1, 2, 4, 5
+=========================================
+An unknown number of workers at McDonald's save some of their earnings every week in a joint savings account, on any day that they wish. When they do so, their savings are stored against their names in this format.
+e.g. mc_weeksavings.dat
+
+Alice|50.00|75.00|24.75|20.25
+Beth|85.00|90.75|44.25
+Chad|190.00
+Dolly|100.50|84.50
+Eric|20.00|20.00|10.00|30.00|20.00
+
+Each number refers to a saving, and the savings are separated by a pipe (|) character as a delimiter. For example, in the above, Eric saved something everyday for 5 days, whereas Chad only saved once that week.
+
+At the end of the week, a report is generated to show how much they earned and saved, in this format:
+Name|Number of Hours worked|Pay per hour, in dollars|Amount saved for the week, in dollars
+e.g. mc_report.dat
+
+Alice|40|9.25|170.00
+Beth|35|10.50|220.00
+Chad|32|10.00|190.00
+Dolly|38|9.20|185.00
+Eric|40|10.75|100.00
+
+Write a C++ program to do the following:
+- Receive the names of the two input files as command line arguments.
+- If less than 2 input files were specified, exit the program with an error message.
+- Read the first input file, add up the savings for each worker and store it in a vector.
+- Read the second input file, and for each worker, compare the amount saved in the report, to the value you got in input file one (and that you stored in a vector)
+- If the amount does not match for any worker, exit the program with an error message.
+- If the amount matches for all workers, calculate the total earnings for the week, and the percentage of it that was saved.
+- Write the result into an output file named "mcdonalds_output.dat" using two decimal places, in the format below:
+e.g. mcdonalds_output.dat
+
+Alice earns $370.00 per week, and saves 45.95% of it.
+Beth earns $367.50 per week, and saves 59.86% of it.
+Chad earns $320.00 per week, and saves 59.38% of it.
+Dolly earns $349.60 per week, and saves 52.92% of it.
+Eric earns $430.00 per week, and saves 23.26% of it.
+
+- Try to use appropriate error notices, success messages to let the user know what is going on.
+
+The solution is attached, properly commented. The input files have also been attached for your convenience.
+
+=============
+Problem 3
+=============
+An algorithm
+- Define and create functions f(x) and df(x) for the function and its derivative respectively
+- Prepare the output file (if it cannot be prepared, give appropriate error message)
+- Receive the starting value of x (x_init), the tolerance (tol) and the max number of iterations (max_iter)
+- Write the starting value of x into the output file
+- If f(x_init) is zero, we can't use newton's method. Give appropriate error message and end the program.
+- Set iter to zero (where iter is the iteration count)
+- Set a new variable x to equal to xinit. (This will be used to update the values as we iterate)
+- Begin a while loop on the condition that the absolute value of f(x_init) >= tol AND iter < max_iter
+- 	Calculate f(x_init) and df(x_init)
+-	If df(x_init) is zero, we need to stop the program. Tell the user, and also write this in the output file.
+-	Update x using x = x - f(x)/df(x) 
+-	Write x into the output file, increase iter by 1, and set x_init to this new value of x.
+- End while loop
+- Close the output file.
+- You may report the solution to the user, also stating the number of iterations, starting point and tolerance.
+
+Other hints
+- Ensure you use the correct variable types for each variable
+- Enter a new line at the end of your output file to make it easy to read
+- Below is one way to initialize the arguments based on the number of arguments. Note how the variables carry over to the next case because there is no break in the switch statement. This is the desired behavior in this case, and I am including it as a reminder of what happens when we don't break switch cases.
+
+Code snippet:
+
+	int itermax=20;
+	double x, xinit=0, tol=1e-7;
+    switch(argc){
+    	case 4:
+            itermax = stoi(argv[3]);	
+    	case 3:
+    		tol = stod(argv[2]);
+    	case 2:
+    		xinit = stod(argv[1]);
+    		break;
+   		default:
+   			break;
+    }
+
+=============
+Problem 4
+=============
+Tips:
+- Refer to the sample problem above and ensure you understand it.
+- Beware of integer division while calculating the frequency of appearance of letters.
+
+An algorithm
+- Ensure input file names were specified.
+- Define a string alphalower that contains all lowercase English letters, similarly for alphaupper
+- Define a vector alphacount, of size 26 (it will be used to count the number of letters)
+- Define a vector files (to store the names of all the files we will process)
+- Initialize an integer sum as 0, being a running total for all letters
+- Run a for loop over files, to assign it the filenames from the command line
+- Define an input file stream
+- Run a range-for loop using each file within vector files
+- 	Clear the input file stream so we can re-use it. i.e. input_file.clear();
+-	Open the current file so we can process it. Give appropriate error if it can't be opened.
+-	Define a string line
+-	Begin a while loop as you perform a getline on this input file
+-		Range-for loop using alpha, over all the characters present in this line
+-			For loop over each letter of the alphabet using i from 0 to 25
+-				if alpha EQUALS alphalower[i] OR alpha EQUALS alphaupper[i]
+-					Increase the count for alphacount[i]
+-					Increase the sum by 1
+-				end if
+-			End for loop
+-		End range-for loop
+-	End the while loop for getline
+-	If the file was read successfully, you may let the user know, and close the input file.
+-	Otherwise if there was a problem reading any of the files, exit the program with an error
+- End range-for loop
+- Run a loop from i=0 to 25
+-	Print the output e.g. "Letter a/A appeared 500 times. Frequency = 17% of all letters".
+- End loop
+
+=============
+Problem 5
+=============
+Tips:
+- The sample problem should help here.
+- Store the matrix data in a vector of vectors. The inner vector will be rows, and outer one columns.
+- You may want to consider using a boolean is_matrixA to indicate if you are reading the first or second matrix. The boolean can change value when you hit the empty line.
+- Don't forget to add spaces in the output file between the elements of the matrix.

@@ -1,0 +1,108 @@
+%&latex
+%% Derived from: asaetr.tex v1.0 01 Jan 92
+
+%\documentclass{asaetr} % footnote - \itshape is invalid in math mode
+\documentstyle{asaetr}
+% requires cmcscsl10 font (Slanted Small Caps).
+% 
+\usepackage{hyperref}
+\usepackage{xcolor}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+
+\title{Quick Reference / Guide\thanks{For Spring 2017 ACMS 21210 Scientific Computing Lab}
+      }
+\author{ACMS 21210 \thanks{Applied \& Computational Math \& Statistics, University of Notre Dame IN 46556.}
+       %\student
+       %\and
+       %A.~D.~Whittaker \member
+       }
+       % the format is: name \membership_grade, where membership_grade
+       % is one of ( \member, \associate, \student, \affiliate, \fellow)
+
+\begin{document}
+
+\bibliographystyle{asaetr}
+\maketitle
+
+\begin{abstract}
+A guide for quick reference in our scientific computing labs.\end{abstract}
+
+\section{Remote Connectivity}
+
+
+Windows SSH\ clients: \begin{itemize}
+\item 
+{\bf Bitvise}: \scriptsize\url{https://www.bitvise.com/ssh-client-download}
+\item {\bf PuTTY}: \scriptsize\url{http://www.chiark.greenend.org.uk/\~sgtatham/putty/latest.html}
+\item{\bf  WinSCP}: \scriptsize\url{https://winscp.net/eng/download.php}
+\end{itemize}
+\\
+Mac SSH client: use the operating system's {\bf Terminal.app}
+
+\subsection{Establishing a Remote Connection}
+
+{\tt ssh USERNAME@SERVER -p PORT}
+\\ where server = {\bf server IP\ address} or {\bf domain}. Default port is 22, so it can be omitted in some cases 
+\\ e.g. {\tt ssh johndoe@crcfe01.crc.nd.edu}
+\\ You will be required to enter your {\bf password}.
+\\ The crcfeIB01 a.k.a the {\it infini-band} server is faster but you can only connect to it when on campus or using ND's VPN
+\\ e.g. {\tt ssh johndoe@crcfeIB01.crc.nd.edu}
+
+\subsection{REMOTE FILE MANAGEMENT}
+
+Available for both Windows and Mac
+\begin{enumerate}
+\item Cyberduck client: {\scriptsize\url{https://cyberduck.io/}} 
+\item Filezilla client: {\scriptsize\url{https://filezilla-project.org/}}
+\end{enumerate}
+
+\subsection{Some Common Linux Commands}
+\begin{description}
+\item[\tt whoami] {\it Displays who you are logged in as}
+\item[\tt ls] {\it Directory listing}
+\item[\tt ls -la] {\it Formatted listing (including hidden files)}
+\item[\tt pwd] {\it Show the current working directory}
+\item[\tt cd] {\it Go to home directory}
+\item[\tt{cd PATH}] {\it Go to the path e.g. \tt{cd Public/code}}
+\item[\tt{cd ..}] {\it Go to the upper folder}
+\item[\tt{touch FILENAME}] {\it Create a file named FILENAME}
+\item[\tt{mkdir DIRNAME}] {\it Create a folder named DIRNAME}
+\item[\tt{rm FILENAME}] {\it Delete a file named FILENAME}
+\item[\tt{rm -f DIRNAME}] {\it Force delete a file named FILENAME}
+\item[\tt{rm -r DIRNAME}] {\it Delete a folder named DIRNAME}
+\item[\tt{rm -fr DIRNAME}] {\it Force delete a folder (extreme caution!)}
+\item[\tt{cp FILE1 FILE2}] {\it Copy FILE1 to FILE2}
+\item[\tt{cp DIR1 DIR2}] {\it Copy DIR1 to DIR2}
+\item[\tt{cp -r DIR1 DIR2}] {\it Copy DIR1 to DIR2, create if necessary}
+\item[\tt{mv FILE1 FILE2}] {\it Move FILE1 to FILE2 (also for renaming)}
+\item[\tt{mv FILE1 DIR2}] {\it Move FILE1 into existing folder DIR2}
+\item[\tt{ln -s FILE LINK}] {\it Create a symbolic LINK to a FILE}
+\item[\tt{nano FILE}] {\it Edit FILE using the nano text editor}
+\item[\tt{head FILE}] {\it Show first 10 lines of FILE}
+\item[\tt{tail FILE}] {\it Show last 10 lines of FILE}
+\item[\tt{wget URL}] {\it Download resource from a LINK}
+\end{description}
+
+\subsection{Compiling your C++ code on the CRC}
+Supply the file name of the source code, version of the C++ standard, and (optional, defaults to {\tt a.out}) the name of the output file.
+\\
+{\tt g++ SOURCE.cpp -std=c++11 -o RESULT.out}
+
+\subsection{Running your output file on the CRC}
+
+{\tt ./RESULT.out}
+
+\subsection{Modifying your profile on the CRC}
+({\it An advanced, optional setup})\\
+{\tt cd}
+\\ {\tt nano .cshrc}
+\\ Add the lines to customize your environment, e.g.
+\\ {\tt alias ls "ls --color=always"}
+\\ {\tt alias scicomp "cd \sim\textnormal{/Public/code/21210"}}
+\\ {\tt bindkey -k up history-search-backward}
+\\ {\tt bindkey -k down history-search-forward}
+\\\textnormal{{\it Save and exit}}
+
+\end{document}
+
+

@@ -1,0 +1,77 @@
+%
+
+\documentclass[a4paper]{article}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,amsfonts,dsfont} 
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{chngcntr}
+
+\usepackage{mathtools}
+\counterwithin{equation}{section}
+
+\def\e{\vec{e}}
+\def\a{\vec{a}}
+\def\b{\vec{b}}
+\def\c{\vec{c}}
+\def\u{\vec{u}}
+\def\v{\vec{v}}
+\def\w{\vec{w}}
+\def\EI{\vec{e}^{\:i}}
+\def\EJ{\vec{e}^{\:j}}
+\def\EK{\vec{e}^{\:k}}
+\def\EL{\vec{e}^{\:l}}
+\def\ei{\vec{e}_{i}}
+\def\ej{\vec{e}_{j}}
+\def\ek{\vec{e}_{k}}
+\def\el{\vec{e}_{l}}
+
+\title{\large AME 60624: Continuum Mechanics - Homework 2 \\ Prof. Karel Matou\v{s} (T.A.: Cale Harnish)}
+
+\author{Oyekola Oyekole}
+
+\date{\today}
+
+\begin{document}
+
+%\maketitle
+
+% \begin{abstract}
+% Here is the abstract
+% \end{abstract}
+
+\section{Minimum number of terms (alternating test)}
+\label{problem1}
+The error in a decreasing alternating series is bounded by the next term in the series. 
+For a series \begin{align*}
+S = \sum_{k=0}^\infty (-1)^ka_k \enspace,
+\end{align*}
+the minimum number of terms ($N$) needed to be certain of accuracy within a chosen tolerance $\epsilon$ (positive)\ is 
+\begin{align}
+|a_{N+1}|\le \epsilon \enspace.
+\end{align}
+Here, we have 
+\begin{align*}
+S = \sum_{k=0}^\infty(-1)^k\frac{1}{2k+1+\ln(k^2+1)}
+\end{align*}
+so we need to find $N$ such that 
+\begin{align}
+|a_{N+1}|=\left|\frac{1}{2N+1+\ln(N^2+1)}\right| \le \epsilon \quad .
+\end{align}
+Since $N > 0$ then $\ln(N^2+1)$ is positive, and the denominator is positive. So we can say
+\begin{align}
+\frac{1}{2N+1+\ln(N^2+1)} &\le \epsilon \notag \\
+\implies 2N+1+\ln(N^2+1) &\ge \frac{1}{\epsilon}
+\end{align}
+Now, $x \ge \ln(x+1)$ when $x > -1$, so $N^2 \ge \ln(N^2 + 1)$ for $N^2 > 0$. Therefore,
+\begin{align}
+2N+1+N^2 &\ge \frac1{\epsilon} \notag\\
+(N+1)^2 &\ge \frac{1}{\epsilon} \notag\\
+N &\ge\sqrt{\frac1{\epsilon}}-1
+\end{align}
+\end{document}

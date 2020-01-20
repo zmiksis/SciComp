@@ -1,0 +1,38 @@
+
+Checking whether zero_vector really is the zero_vector...
+Success, zero_vector really is zero!
+
+Checking whether vector_i is the zero vector...
+Success, vector_i is not the zero vector!
+
+Clearing vector_i, and checking to see whether the resulting vector is the zero vector...
+Success, vector_i was cleared successfully. Resetting vector_i...
+
+u == (2, 1, 2)
+v == (-2, 4, 0)
+w == (0, 6, 8)
+
+The length of u is: 3
+The length of v is: 4.47214
+The length of w is: 10
+
+The dot product of u and v is: 0
+The dot product of u and w is: 22
+The dot product of v and w is: 24
+
+The angle between u and v is: 1.5708
+The angle between u and w is: 0.747584
+The angle between v and w is: 1.00433
+
+The cross product of u and v is: (-8, -4, 10)
+The cross product of u and w is: (-4, -16, 12)
+The cross product of v and w is: (32, 16, -12)
+
+The cross product of u and v is the negative of the cross product of v and u!
+
+Testing whether or not i == j...
+(1, 0, 0) is not equal to (0, 1, 0)
+
+Now changing the entries of v...
+v is now: (1, 3, 5)
+The sum of the entries of v is: 9
